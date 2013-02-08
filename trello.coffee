@@ -21,7 +21,7 @@ module.exports = (robot) ->
 
     robot.respond /identify$/, (msg) ->
         irc_user = msg.message.user.name
-        if userMaps[irc_user]?
+        if irc_user of userMaps
             msg.reply "irc user: #{irc_user} identified as #{userMaps[irc_user]}"
         else
             msg.reply "could not identify"
