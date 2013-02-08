@@ -12,7 +12,7 @@ fs.readFile '/opt/hubotIRC', 'utf-8', (err,data)->
     token = _[1]
 
 trello = require 'node-trello'
-trello_instance = new trello key token
+trello_instance = new trello key, token
 
 module.exports = (robot) ->
     robot.respond /REPORT!$/, (msg) ->
