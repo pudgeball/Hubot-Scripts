@@ -26,5 +26,6 @@ module.exports = (robot) ->
         else
             msg.reply "could not identify"
 
-    robot.respond /_DEBUG$/, (msg) ->
-        msg.reply "#{key}"
+    robot.respond /list boards$/, (msg) ->
+        trello_instance.get "/1/organizations/easytag/", { boards: "open" }, (err, data) ->
+            msg.reply "#{data}"
