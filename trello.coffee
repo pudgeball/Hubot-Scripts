@@ -1,6 +1,9 @@
 userMaps =
-    sayed: sorter
-    nickmcguire: @nickmcguire
+    sayed: 'sorter'
+    nickmcguire: '@nickmcguire'
+
+trello = require 'node-trello'
+trello_instance = new trello
 
 module.exports = (robot) ->
     robot.respond /REPORT!$/, (msg) ->
