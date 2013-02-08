@@ -7,10 +7,10 @@ token = ""
 
 fs = require 'fs'
 fs.readFile '/opt/hubotIRC', 'utf-8', (err,data)->
-    key = data
+    key, token = data.split(',')
 
 trello = require 'node-trello'
-trello_instance = new trello
+trello_instance = new trello key token
 
 module.exports = (robot) ->
     robot.respond /REPORT!$/, (msg) ->
