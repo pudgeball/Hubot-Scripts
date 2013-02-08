@@ -6,7 +6,7 @@ key = ""
 token = ""
 
 fs = require 'fs'
-fs.readFile '/opt/hubotIRC', 'utf-8', (err,data)->
+fs.readFile '/opt/hubotIRC/scripts/trelloCreds', 'utf-8', (err,data)->
     _ = data.split ','
     key = _[0]
     token = _[1]
