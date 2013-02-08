@@ -7,7 +7,9 @@ token = ""
 
 fs = require 'fs'
 fs.readFile '/opt/hubotIRC', 'utf-8', (err,data)->
-    key, token = data.split(',')
+    _ = data.split
+    key = _[0]
+    key = _[1]
 
 trello = require 'node-trello'
 trello_instance = new trello key token
