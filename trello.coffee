@@ -7,7 +7,7 @@ token = ""
 
 fs = require 'fs'
 fs.readFile '/opt/hubotIRC', 'utf-8', (err,data)->
-    _ = data.split
+    _ = data.split ','
     key = _[0]
     token = _[1]
 
