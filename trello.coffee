@@ -29,7 +29,7 @@ module.exports = (robot) ->
                     board_ids = (b.id for b in boards)
                     msg.reply "#{board_ids}"
                     for bid in board_ids
-                        trello_instance.get "/1/boards/#{bid}", filter: open, (err, data) ->
+                        trello_instance.get "/1/boards/#{bid}", cards: 'open', (err, data) ->
                             if err == null
                                 msg.reply "#{Object.keys(data)}"
                             else
