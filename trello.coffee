@@ -31,7 +31,8 @@ module.exports = (robot) ->
                     for bid in board_ids
                         trello_instance.get "/1/boards/#{bid}", cards: 'open', (err, data) ->
                             if err == null
-                                msg.reply "#{Object.keys(data)}"
+                                cards = data.cards
+                                # TODO: filter cards by ownership
                             else
                                 msg.reply "#{err}"
         
