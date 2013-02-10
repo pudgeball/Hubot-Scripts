@@ -1,6 +1,6 @@
 userMaps =
     sayed: 'sayedk'
-    nickmcguire: '@nickmcguire'
+    nickmcguire: 'nickmcguire'
 
 key = ""
 token = ""
