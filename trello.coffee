@@ -24,11 +24,11 @@ module.exports = (robot) ->
         irc_user = msg.message.user.name
         if irc_user of userMaps
             target = "/1/members/#{userMaps[irc_user]}"
-            msg.reply "Hitting #{target}"
             trello_instance.get target, cards: 'open', (err, data) ->
                 if err == null
                     cards = data.cards
-                    msg.reply "#{cards.length}"
+                    for c in cards:
+                        msg.reply "#{Object.keys c}"
         #    trello_instance.get "/1/organizations/easytag", boards: 'open', (err, data) ->
         #        if err == null
         #            boards = data.boards
