@@ -28,7 +28,7 @@ module.exports = (robot) ->
                 if err == null
                     cards = data.cards
                     for c in cards
-                        msg.reply "#{c.desc}"
+                        msg.reply "#{c.name}"
        
     robot.respond /REPORT!$/, (msg) ->
         irc_user = msg.message.user.name
