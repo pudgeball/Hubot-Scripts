@@ -27,14 +27,17 @@ module.exports = (robot) ->
                 if err == null
                     boards = data.boards
                     board_ids = (b.id for b in boards)
-                    msg.reply "#{board_ids}"
-                    for bid in board_ids
+                    boardMapping = {}
+                    for bid, i in board_ids
                         trello_instance.get "/1/boards/#{bid}", cards: 'open', (err, data) ->
                             if err == null
                                 cards = data.cards
+                                boardMapping[bid] = (c.id for c in cards)
                                 # TODO: filter cards by ownership
+                                msg.reply "#{boardMapping[bid]}"
                             else
                                 msg.reply "#{err}"
+                            
         
     robot.respond /REPORT!$/, (msg) ->
         irc_user = msg.message.user.name
