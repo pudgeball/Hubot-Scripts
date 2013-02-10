@@ -1,5 +1,5 @@
 userMaps =
-    sayed: 'sorter'
+    sayed: '@sayedk'
     nickmcguire: '@nickmcguire'
 
 key = ""
@@ -23,20 +23,22 @@ module.exports = (robot) ->
     robot.respond /list orders$/, (msg) ->
         irc_user = msg.message.user.name
         if irc_user of userMaps
-            trello_instance.get "/1/organizations/easytag", boards: 'open', (err, data) ->
-                if err == null
-                    boards = data.boards
-                    board_ids = (b.id for b in boards)
-                    boardMapping = {}
-                    for bid, i in board_ids
-                        trello_instance.get "/1/boards/#{bid}", cards: 'open', (err, data) ->
-                            if err == null
-                                cards = data.cards
-                                boardMapping[bid] = (c.id for c in cards)
-                                # TODO: filter cards by ownership
-                                msg.reply "#{boardMapping[bid]}"
-                            else
-                                msg.reply "#{err}"
+            trello_instance.get "/1/cards/" { members: userMaps[irc_user] }, (err, data) ->
+                msg.reply "#{data}"
+        #    trello_instance.get "/1/organizations/easytag", boards: 'open', (err, data) ->
+        #        if err == null
+        #            boards = data.boards
+        #            board_ids = (b.id for b in boards)
+        #            boardMapping = {}
+        #            for bid, i in board_ids
+        #                trello_instance.get "/1/boards/#{bid}", cards: 'open', (err, data) ->
+        #                    if err == null
+        #                        cards = data.cards
+        #                        boardMapping[bid] = (c.id for c in cards)
+        #                        # TODO: filter cards by ownership
+        #                        msg.reply "#{boardMapping[bid]}"
+        #                    else
+        #                        msg.reply "#{err}"
                             
         
     robot.respond /REPORT!$/, (msg) ->
