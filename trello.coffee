@@ -20,7 +20,7 @@ module.exports = (robot) ->
     robot.respond /damage report$/, (msg) ->
         trello_instance.get "/1/organizations/easytag/", cards: 'open', (err, data) ->
             if err == null
-                msg.reply "#{Object.keys data.cards}"
+                msg.reply "#{Object.keys data}"
 
     # return all open cards assigned to me
     robot.respond /list orders$/, (msg) ->
