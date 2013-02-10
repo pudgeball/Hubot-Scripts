@@ -1,5 +1,5 @@
 userMaps =
-    sayed: '@sayedk'
+    sayed: 'sayedk'
     nickmcguire: '@nickmcguire'
 
 key = ""
