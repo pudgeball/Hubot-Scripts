@@ -27,7 +27,7 @@ module.exports = (robot) ->
             trello_instance.get target, cards: 'open', (err, data) ->
                 if err == null
                     cards = data.cards
-                    for c in cards:
+                    for c in cards
                         msg.reply "#{Object.keys c}"
         #    trello_instance.get "/1/organizations/easytag", boards: 'open', (err, data) ->
         #        if err == null
