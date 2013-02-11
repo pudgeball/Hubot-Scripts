@@ -43,7 +43,6 @@ module.exports = (robot) ->
                 if err == null
                     cards = data.cards
                     for c in cards
-                        msg.reply "#{Object.keys c}"
                         for l in c.labels
                             if l.name.toLowerCase().indexOf("to do") != -1
                                 msg.reply "#{c.name}"
