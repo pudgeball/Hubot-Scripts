@@ -27,7 +27,7 @@ module.exports = (robot) ->
                         if err == null
                             #msg.reply "#{Object.keys data2.cards[0]}"
                             for c in data2.cards
-                                for l in c.labels:
+                                for l in c.labels
                                     if l.name.toLowerCase().indexOf "bug" != -1
                                         print "#{b.name}: #{c.name}"
 
