@@ -31,8 +31,6 @@ module.exports = (robot) ->
                             #msg.reply "#{Object.keys data2.cards[0]}"
                             for c in data2.cards
                                 for l in c.labels
-                                    msg.reply "#{l.name.toLowerCase()}"
-                                    msg.reply "#{l.name.toLowerCase().indexOf "bug"}"
                                     if l.name.toLowerCase().indexOf("bug") != -1
                                         msg.reply "#{boardMap[c.idBoard]}: #{c.name}"
 
