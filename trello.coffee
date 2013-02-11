@@ -29,7 +29,7 @@ module.exports = (robot) ->
                             for c in data2.cards
                                 for l in c.labels
                                     if l.name.toLowerCase().indexOf "bug" != -1
-                                        print "#{b.name}: #{c.name}"
+                                        msg.reply "#{b.name}: #{c.name}"
 
     # return all open cards assigned to me
     robot.respond /list orders$/, (msg) ->
