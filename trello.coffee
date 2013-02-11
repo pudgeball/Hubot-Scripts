@@ -27,9 +27,9 @@ module.exports = (robot) ->
                         if err == null
                             #msg.reply "#{Object.keys data2.cards[0]}"
                             for c in data2.cards
-                                if c.labels.length > 0
-                                    msg.reply "#{c.labels[0].name}"
-                                    return
+                                for l in c.labels:
+                                    if l.name.toLowerCase().indexOf "bug" != -1
+                                        print "#{b.name}: #{c.name}"
 
     # return all open cards assigned to me
     robot.respond /list orders$/, (msg) ->
