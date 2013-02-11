@@ -17,7 +17,7 @@ trello_instance = new trello key, token
 module.exports = (robot) ->
 
     # return all open bugs
-    robot.respond /damage report$/, (msg) ->
+    robot.respond /damage report$/i, (msg) ->
         trello_instance.get "/1/organizations/easytag", boards: 'open', (err, data) ->
             if err == null
                 bs = data.boards
@@ -25,14 +25,15 @@ module.exports = (robot) ->
                 boardMap = {}
                 for b in bs
                     boardMap[b.id] = b.name
-                for b, i in bs
+                for b in bs
+                    msg.reply "#{b.name}  #{b.id}"
                     trello_instance.get "/1/boards/#{b.id}/", cards: 'open', (err, data2) ->
                         if err == null
                             #msg.reply "#{Object.keys data2.cards[0]}"
                             for c in data2.cards
                                 for l in c.labels
                                     if l.name.toLowerCase().indexOf("bug") != -1
-                                        msg.reply "#{boardMap[c.idBoard]}: #{c.name}"
+                                        msg.reply "#{c.id} #{c.name}"
 
     # return all open cards assigned to me
     robot.respond /list orders$/, (msg) ->
