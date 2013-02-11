@@ -26,6 +26,7 @@ module.exports = (robot) ->
                     trello_instance.get "/1/boards/#{b.id}/", cards: 'open', (err, data2) ->
                         if err == null
                             cards += cards
+                            msg.reply "#{i}"
                             if i == bs.length-1
                                 msg.reply "#{cards.length}"
                                 msg.reply "#{Object.keys cards[0]}"
