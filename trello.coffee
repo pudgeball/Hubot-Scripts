@@ -43,6 +43,7 @@ module.exports = (robot) ->
                 if err == null
                     cards = data.cards
                     for c in cards
+                        msg.reply "#{Object.keys c}"
                         msg.reply "#{c.name}"
        
     robot.respond /REPORT!$/, (msg) ->
