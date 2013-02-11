@@ -18,7 +18,7 @@ module.exports = (robot) ->
 
     # return all open bugs
     robot.respond /damage report$/, (msg) ->
-        trello_instance.get "/1/organizations/easytag", boards: open, (err, data) ->
+        trello_instance.get "/1/organizations/easytag", boards: 'open', (err, data) ->
             if err == null
                 bs = data.boards
                 cards = [ ]
