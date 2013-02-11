@@ -34,7 +34,7 @@ module.exports = (robot) ->
                                 for l in c.labels
                                     if l.name.toLowerCase().indexOf("bug") != -1
                                         if !beenThere
-                                            msg.reply "c.idBoard    #{boardMap[c.idBoard]}"
+                                            msg.reply "#{c.idBoard}    #{boardMap[c.idBoard]}"
                                             beenThere = !beenThere
                                         msg.reply "#{c.id}      #{c.name}"
 
