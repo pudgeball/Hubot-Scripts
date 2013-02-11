@@ -22,15 +22,17 @@ module.exports = (robot) ->
             if err == null
                 bs = data.boards
                 cards = [ ]
+                boardMap = {}
+                for b in bs:
+                    boardMap[b.id] = boardMap[b.name]
                 for b, i in bs
-                    bname = b.name
                     trello_instance.get "/1/boards/#{b.id}/", cards: 'open', (err, data2) ->
                         if err == null
                             #msg.reply "#{Object.keys data2.cards[0]}"
                             for c in data2.cards
                                 for l in c.labels
                                     if l.name.toLowerCase().indexOf "bug" != -1
-                                        msg.reply "#{bname}: #{c.name}"
+                                        msg.reply "#{boardMap[c.idBoard]}: #{c.name}"
 
     # return all open cards assigned to me
     robot.respond /list orders$/, (msg) ->
