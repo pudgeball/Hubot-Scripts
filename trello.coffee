@@ -44,7 +44,9 @@ module.exports = (robot) ->
                     cards = data.cards
                     for c in cards
                         msg.reply "#{Object.keys c}"
-                        msg.reply "#{c.name}"
+                        for l in c.labels
+                            if l.name.toLowerCase().indexOf("to do") != -1
+                                msg.reply "#{c.name}"
        
     robot.respond /REPORT!$/, (msg) ->
         irc_user = msg.message.user.name
