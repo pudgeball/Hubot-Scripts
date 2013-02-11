@@ -26,8 +26,9 @@ module.exports = (robot) ->
                     trello_instance.get "/1/boards/#{b.id}/", cards: 'open', (err, data2) ->
                         if err == null
                             #msg.reply "#{Object.keys data2.cards[0]}"
-                            msg.reply "#{data2.cards[0].labels}"
-                    #trello_instance.get "/1/boards#{b.id}"
+                            for c in data2.cards
+                                if c.labels.length > 0
+                                    msg.reply "#{c.labels}"
 
     # return all open cards assigned to me
     robot.respond /list orders$/, (msg) ->
