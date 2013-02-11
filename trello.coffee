@@ -23,7 +23,7 @@ module.exports = (robot) ->
                 bs = data.boards
                 cards = [ ]
                 boardMap = {}
-                for b in bs:
+                for b in bs
                     boardMap[b.id] = boardMap[b.name]
                 for b, i in bs
                     trello_instance.get "/1/boards/#{b.id}/", cards: 'open', (err, data2) ->
