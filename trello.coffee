@@ -33,8 +33,7 @@ module.exports = (robot) ->
                                 for l in c.labels
                                     msg.reply "#{l.name.toLowerCase()}"
                                     msg.reply "#{l.name.toLowerCase().indexOf "bug"}"
-                                    if l.name.toLowerCase().indexOf "bug" != -1
-                                        #msg.reply "#{l.name}"
+                                    if l.name.toLowerCase().indexOf("bug") != -1
                                         msg.reply "#{boardMap[c.idBoard]}: #{c.name}"
 
     # return all open cards assigned to me
