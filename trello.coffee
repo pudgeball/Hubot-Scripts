@@ -28,7 +28,7 @@ module.exports = (robot) ->
                             #msg.reply "#{Object.keys data2.cards[0]}"
                             for c in data2.cards
                                 if c.labels.length > 0
-                                    msg.reply "#{Object.keys c.labels}"
+                                    msg.reply "#{Object.keys c.labels[0]}"
                                     return
 
     # return all open cards assigned to me
